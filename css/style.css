@@ -1,0 +1,827 @@
+/* ============================================================
+   東大創業者の会ファンド — 共通スタイル
+   style.css
+   ============================================================ */
+
+/* ─── Google Fonts は各HTMLの<head>で読み込む ─── */
+
+/* ─── CSS Variables ─── */
+:root {
+  --navy: #0f1f3d;
+  --navy-mid: #1a3260;
+  --navy-light: #2a4a8a;
+  --accent: #4a7fc1;
+  --accent-light: #6fa3d8;
+  --steel: #8faabf;
+  --fog: #c8d8e8;
+  --cream: #f5f3ef;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #4a5568;
+  --text-light: #718096;
+  --border: rgba(74, 127, 193, 0.2);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 31, 61, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(74,127,193,0.15);
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--accent-light); }
+.nav-contact {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  padding: 9px 22px;
+  border: 1px solid rgba(74,127,193,0.6);
+  color: var(--fog);
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.nav-contact:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0a1628 0%, #0f2550 55%, #1a3a72 100%);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(74,127,193,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,50,96,0.6) 0%, transparent 70%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(74,127,193,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,127,193,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-deco-text {
+  position: absolute;
+  right: -20px;
+  top: 140px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 10vw, 140px);
+  color: rgba(74,127,193,0.08);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  writing-mode: vertical-rl;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 64px 80px;
+  max-width: 640px;
+}
+.hero-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+}
+.hero-title-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.hero-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--steel);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.hero-subtitle-vertical {
+  position: absolute;
+  right: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.25em;
+  line-height: 1.8;
+}
+.hero-tagline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 2;
+  letter-spacing: 0.05em;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+}
+.hero-scroll-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ============================================================
+   PAGE HERO（サブページ用）
+   ============================================================ */
+.page-hero {
+  padding: 160px 64px 80px;
+  background: linear-gradient(160deg, #0a1628 0%, #0f2550 55%, #1a3a72 100%);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(74,127,193,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,127,193,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.page-hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+.page-hero-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+}
+.page-hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   SHARED SECTION ELEMENTS
+   ============================================================ */
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-title-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 300;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin-bottom: 32px;
+}
+.divider {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 32px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-outline {
+  display: inline-block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  padding: 14px 40px;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
+.btn-solid {
+  display: inline-block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  padding: 18px 64px;
+  background: var(--navy);
+  color: var(--white);
+  text-decoration: none;
+  transition: background 0.25s, letter-spacing 0.25s;
+}
+.btn-solid:hover { background: var(--navy-light); letter-spacing: 0.16em; }
+
+/* ============================================================
+   NEWS
+   ============================================================ */
+#news {
+  background: var(--white);
+  padding: 120px 0;
+}
+.news-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+.news-list { list-style: none; }
+.news-item {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+.news-item:last-child { border-bottom: 1px solid var(--border); }
+.news-item:hover { opacity: 0.7; cursor: pointer; }
+.news-item-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+.news-item-excerpt {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about { background: var(--cream); padding: 120px 64px; }
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-lead {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+.about-body {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   PORTFOLIO
+   ============================================================ */
+#portfolio { background: var(--white); padding: 120px 64px; }
+.portfolio-inner { max-width: 1100px; margin: 0 auto; }
+.portfolio-sub {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 60px;
+}
+.logo-item {
+  width: calc(100% / 7);
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.06);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.03em;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+.logo-item:hover { background: var(--cream); color: var(--navy); }
+.portfolio-cta { text-align: center; margin-top: 40px; }
+
+/* ============================================================
+   STATS
+   ============================================================ */
+#stats { background: var(--navy); padding: 100px 64px; }
+.stats-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(74,127,193,0.2);
+}
+.stat-box { background: var(--navy); padding: 48px 32px; text-align: center; }
+.stat-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+}
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  color: var(--white);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.stat-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   ACTIVITIES
+   ============================================================ */
+#activities { background: var(--white); padding: 120px 64px; }
+.activities-inner { max-width: 1100px; margin: 0 auto; }
+.activity-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 2px;
+  min-height: 440px;
+}
+.activity-block.reverse { direction: rtl; }
+.activity-block.reverse > * { direction: ltr; }
+.activity-img {
+  background: var(--navy-mid);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+.activity-img-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a3260 0%, #0f2550 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.activity-img-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  color: rgba(74,127,193,0.2);
+  letter-spacing: 0.05em;
+}
+.activity-content {
+  background: var(--cream);
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.activity-en {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.activity-line {
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 24px;
+}
+.activity-desc {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+#benefits {
+  background: linear-gradient(160deg, #0f1f3d 0%, #1a3260 100%);
+  padding: 120px 64px;
+}
+.benefits-inner { max-width: 1100px; margin: 0 auto; }
+.benefits-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 64px;
+}
+.benefit-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(74,127,193,0.15);
+  padding: 48px 36px;
+  transition: background 0.25s;
+}
+.benefit-card:hover { background: rgba(74,127,193,0.1); }
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+.benefit-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.benefit-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+.benefits-quote {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  padding-top: 64px;
+  border-top: 1px solid rgba(74,127,193,0.2);
+}
+
+/* ============================================================
+   JOIN US
+   ============================================================ */
+#join { background: var(--cream); padding: 120px 64px; }
+.join-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.join-conditions {
+  text-align: left;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 36px 40px;
+  margin: 32px 0 40px;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+.join-conditions li {
+  list-style: none;
+  padding-left: 16px;
+  position: relative;
+}
+.join-conditions li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ============================================================
+   MEDIA
+   ============================================================ */
+#media { background: var(--white); padding: 120px 64px; }
+.media-inner { max-width: 1100px; margin: 0 auto; }
+.media-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.media-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.media-card:hover {
+  box-shadow: 0 12px 40px rgba(15,31,61,0.1);
+  transform: translateY(-4px);
+}
+.media-card-img {
+  height: 200px;
+  background: linear-gradient(135deg, #1a3260 0%, #2a4a8a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.media-card-img-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: rgba(255,255,255,0.12);
+}
+.media-card-body { padding: 24px; }
+.media-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+.media-card-excerpt {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.media-card-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   MEMBERS
+   ============================================================ */
+#members { background: var(--cream); padding: 120px 64px; }
+.members-inner { max-width: 1100px; margin: 0 auto; }
+.members-lead {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 2.1;
+  max-width: 720px;
+  margin-bottom: 72px;
+  letter-spacing: 0.04em;
+}
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 64px;
+}
+.member-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.member-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #c8d8e8 0%, #8faabf 100%);
+  overflow: hidden;
+}
+.member-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+  background: linear-gradient(180deg, #c8d8e8 0%, #8faabf 100%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: rgba(255,255,255,0.5);
+}
+.member-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.member-company {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.member-role {
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.member-bio {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   CONTACT / FORM
+   ============================================================ */
+#contact { background: var(--navy); padding: 120px 64px; }
+.contact-inner { max-width: 720px; margin: 0 auto; }
+.contact-inner .section-title-jp { color: var(--white); }
+.contact-notes {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 2;
+  margin-bottom: 48px;
+  letter-spacing: 0.04em;
+}
+.contact-notes a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+.form-group { margin-bottom: 24px; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+}
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(74,127,193,0.3);
+  color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.25s;
+  letter-spacing: 0.04em;
+}
+.form-input:focus,
+.form-textarea:focus { border-color: var(--accent-light); }
+.form-input::placeholder,
+.form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--accent);
+  border: none;
+  color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.25s;
+}
+.form-submit:hover { background: var(--accent-light); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #080f1e;
+  padding: 36px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+.footer-logo span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.2);
+  margin-top: 4px;
+}
+.footer-sns a {
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.footer-sns a:hover { color: rgba(255,255,255,0.7); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 20px; }
+  .hero-content { padding: 100px 32px 60px; }
+  .hero-subtitle-vertical { display: none; }
+  .page-hero { padding: 120px 32px 60px; }
+  #about { padding: 80px 32px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  #portfolio { padding: 80px 32px; }
+  .logo-item { width: calc(100% / 4); }
+  #stats { padding: 60px 32px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  #activities { padding: 80px 32px; }
+  .activity-block { grid-template-columns: 1fr; }
+  .activity-block.reverse { direction: ltr; }
+  #benefits { padding: 80px 32px; }
+  .benefits-cards { grid-template-columns: 1fr; }
+  #join { padding: 80px 32px; }
+  #media { padding: 80px 32px; }
+  .media-cards { grid-template-columns: 1fr; }
+  #members { padding: 80px 32px; }
+  .members-grid { grid-template-columns: 1fr; }
+  #contact { padding: 80px 32px; }
+  footer { padding: 28px 32px; flex-direction: column; gap: 16px; text-align: center; }
+}
