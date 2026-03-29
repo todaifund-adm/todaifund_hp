@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東大創業者の会ファンド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --navy-mid: #1a3260;
+      --navy-light: #2a4a8a;
+      --accent: #4a7fc1;
+      --accent-light: #6fa3d8;
+      --steel: #8faabf;
+      --fog: #c8d8e8;
+      --cream: #f5f3ef;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-mid: #4a5568;
+      --text-light: #718096;
+      --border: rgba(74, 127, 193, 0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 31, 61, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74,127,193,0.15);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--accent-light); }
+
+    .nav-contact {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      padding: 9px 22px;
+      border: 1px solid rgba(74,127,193,0.6);
+      color: var(--fog);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .nav-contact:hover {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0a1628 0%, #0f2550 55%, #1a3a72 100%);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(74,127,193,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,50,96,0.6) 0%, transparent 70%);
+    }
+
+    /* Subtle grid lines */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(74,127,193,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,127,193,0.06) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    /* Large decorative text top-right */
+    .hero-deco-text {
+      position: absolute;
+      right: -20px;
+      top: 140px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 10vw, 140px);
+      color: rgba(74,127,193,0.08);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      white-space: nowrap;
+      pointer-events: none;
+      writing-mode: vertical-rl;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 64px 80px;
+      max-width: 640px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .hero-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.3;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(13px, 1.4vw, 16px);
+      color: var(--steel);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+
+    .hero-subtitle-vertical {
+      position: absolute;
+      right: 64px;
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.25em;
+      line-height: 1.8;
+    }
+
+    .hero-tagline {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 2;
+      letter-spacing: 0.05em;
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 64px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .hero-scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 300;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    /* ─── NEWS ─── */
+    #news {
+      background: var(--white);
+      padding: 120px 0;
+    }
+
+    .news-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .news-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .news-item:hover { opacity: 0.7; cursor: pointer; }
+
+    .news-item-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    .news-item-excerpt {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--cream);
+      padding: 120px 64px;
+    }
+
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+
+    .about-body {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── PORTFOLIO ─── */
+    #portfolio {
+      background: var(--white);
+      padding: 120px 64px;
+    }
+
+    .portfolio-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .portfolio-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 60px;
+    }
+
+    .logo-item {
+      width: calc(100% / 7);
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      letter-spacing: 0.03em;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .logo-item:hover {
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    .portfolio-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      padding: 14px 40px;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* ─── STATS ─── */
+    #stats {
+      background: var(--navy);
+      padding: 100px 64px;
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(74,127,193,0.2);
+    }
+
+    .stat-box {
+      background: var(--navy);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      color: var(--white);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .stat-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── ACTIVITIES ─── */
+    #activities {
+      background: var(--white);
+      padding: 120px 64px;
+    }
+
+    .activities-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .activity-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 2px;
+      min-height: 440px;
+    }
+
+    .activity-block.reverse { direction: rtl; }
+    .activity-block.reverse > * { direction: ltr; }
+
+    .activity-img {
+      background: var(--navy-mid);
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .activity-img-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a3260 0%, #0f2550 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activity-img-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      color: rgba(74,127,193,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    .activity-content {
+      background: var(--cream);
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .activity-en {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .activity-line {
+      width: 32px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .activity-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── BENEFITS ─── */
+    #benefits {
+      background: linear-gradient(160deg, #0f1f3d 0%, #1a3260 100%);
+      padding: 120px 64px;
+    }
+
+    .benefits-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .benefits-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(74,127,193,0.15);
+      padding: 48px 36px;
+      transition: background 0.25s;
+    }
+
+    .benefit-card:hover {
+      background: rgba(74,127,193,0.1);
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .benefit-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .benefit-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    .benefits-quote {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 2.2;
+      letter-spacing: 0.05em;
+      padding-top: 64px;
+      border-top: 1px solid rgba(74,127,193,0.2);
+    }
+
+    /* ─── JOIN US ─── */
+    #join {
+      background: var(--cream);
+      padding: 120px 64px;
+    }
+
+    .join-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .join-conditions {
+      text-align: left;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 36px 40px;
+      margin: 32px 0 40px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+    }
+
+    .join-conditions li {
+      list-style: none;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .join-conditions li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .btn-solid {
+      display: inline-block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      padding: 18px 64px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      transition: background 0.25s, letter-spacing 0.25s;
+    }
+
+    .btn-solid:hover {
+      background: var(--navy-light);
+      letter-spacing: 0.16em;
+    }
+
+    /* ─── MEDIA ─── */
+    #media {
+      background: var(--white);
+      padding: 120px 64px;
+    }
+
+    .media-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .media-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .media-card {
+      border: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .media-card:hover {
+      box-shadow: 0 12px 40px rgba(15,31,61,0.1);
+      transform: translateY(-4px);
+    }
+
+    .media-card-img {
+      height: 200px;
+      background: linear-gradient(135deg, #1a3260 0%, #2a4a8a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .media-card-img-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: rgba(255,255,255,0.12);
+    }
+
+    .media-card-body {
+      padding: 24px;
+    }
+
+    .media-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .media-card-excerpt {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.9;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .media-card-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── MEMBERS ─── */
+    #members {
+      background: var(--cream);
+      padding: 120px 64px;
+    }
+
+    .members-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .members-lead {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      max-width: 720px;
+      margin-bottom: 72px;
+      letter-spacing: 0.04em;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 64px;
+    }
+
+    .member-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .member-photo {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #c8d8e8 0%, #8faabf 100%);
+      overflow: hidden;
+    }
+
+    .member-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 12px;
+      background: linear-gradient(180deg, #c8d8e8 0%, #8faabf 100%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .member-info {}
+
+    .member-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .member-company {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .member-role {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .member-bio {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--navy);
+      padding: 120px 64px;
+    }
+
+    .contact-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .contact-inner .section-title-jp {
+      color: var(--white);
+    }
+
+    .contact-notes {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 2;
+      margin-bottom: 48px;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-notes a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: underline;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(74,127,193,0.3);
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.25s;
+      letter-spacing: 0.04em;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent-light);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background: var(--accent);
+      border: none;
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.25s;
+    }
+
+    .form-submit:hover { background: var(--accent-light); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #080f1e;
+      padding: 36px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.2);
+      margin-top: 4px;
+    }
+
+    .footer-sns a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-sns a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-content { padding: 100px 32px 60px; }
+      .hero-subtitle-vertical { display: none; }
+      #about { padding: 80px 32px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      #portfolio { padding: 80px 32px; }
+      .logo-item { width: calc(100% / 4); }
+      #stats { padding: 60px 32px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      #activities { padding: 80px 32px; }
+      .activity-block { grid-template-columns: 1fr; }
+      .activity-block.reverse { direction: ltr; }
+      #benefits { padding: 80px 32px; }
+      .benefits-cards { grid-template-columns: 1fr; }
+      #join { padding: 80px 32px; }
+      #media { padding: 80px 32px; }
+      .media-cards { grid-template-columns: 1fr; }
+      #members { padding: 80px 32px; }
+      .members-grid { grid-template-columns: 1fr; }
+      #contact { padding: 80px 32px; }
+      footer { padding: 28px 32px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="#news">NEWS</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#activities">ACTIVITIES</a></li>
+    <li><a href="#members">MEMBERS</a></li>
+    <li><a href="#portfolio">PORTFOLIO</a></li>
+    <li><a href="#contact">EVENTS</a></li>
+  </ul>
+  <a href="#contact" class="nav-contact">CONTACT</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-deco-text">TODAIFUND</div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">U-TOKYO ENTREPRENEUR SUPPORTER'S CLUB · INCUBATION FUND</p>
+    <h1 class="hero-title-jp">東大創業者の会<br>ファンド</h1>
+    <p class="hero-title-en">Tokyo Entrepreneur Incubation Fund</p>
+    <p class="hero-tagline">
+      東京大学出身の上場起業家が<br>
+      後輩起業家を手厚く支援する
+    </p>
+  </div>
+
+  <div class="hero-subtitle-vertical">
+    東京大学出身の上場起業家が後輩起業家を手厚く支援する
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-line"></span>
+    SCROLL
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="news-inner">
+    <p class="section-label fade-up">NEWS</p>
+    <h2 class="section-title-jp fade-up">お知らせ</h2>
+
+    <ul class="news-list fade-up">
+      <li class="news-item">
+        <p class="news-item-title">東大創業者の会×SVCOアカデミー 「高い企業価値を目指すエクイティストーリーとは？」勉強会イベントを開催いたしました</p>
+        <p class="news-item-excerpt">2026年1月9日(金)にgoodoffice新橋にて、東大創業者の会とフィナンシャル・バリュー＆アドバイザーズの共催で勉強会イベントを開催し、東大出身スタートアップの方を中心に、約30名の方…</p>
+      </li>
+      <li class="news-item">
+        <p class="news-item-title">【2026/1/9(金)開催】「高い企業価値を目指すエクイティストーリーとは？」勉強会型イベントのお知らせ</p>
+        <p class="news-item-excerpt">いつもお世話になっております。東大創業者の会事務局です。東大創業者の会では、ファイナンシャル・バリュー＆アドバイザーズ株式会社と共催し、「スタートアップのための大きな企業価値を創出するエクイティストー…</p>
+      </li>
+      <li class="news-item">
+        <p class="news-item-title">スタートアップの事業成長を加速する「事業計画の極意」講演会を開催いたしました</p>
+        <p class="news-item-excerpt">2025年11月13日(木)にgoodoffice新橋にて、スタートアップの事業成長を加速する「事業計画の極意」講演会を開催し、東大出身起業家の方を中心に、約20名の方にお集まりいただきまして、活気…</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="fade-up">
+      <p class="section-label">ABOUT</p>
+      <h2 class="section-title-jp">東大創業者の会<br>ファンドについて</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="fade-up">
+      <p class="about-lead">私たちは東京大学出身で株式上場を果たした起業家のコミュニティより誕生いたしました</p>
+      <p class="about-body">2010年に発足した私たち「東大創業者の会」は、2018年のファンド立ち上げ以降、これまで31社への出資・事業支援を行って参りました。今後さらなる支援の輪を広げ「事業資金/ネットワーク/メンタリング」という多様な視点から東大出身事業家の上場をサポートするべく、2022年5月に新「東大創業者の会ファンド」を設立いたしました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <p class="section-label fade-up">PORTFOLIO</p>
+    <h2 class="section-title-jp fade-up">投資先一覧</h2>
+
+    <p class="portfolio-sub fade-up">前身ファンド（GP: Angel Bridge）投資実績</p>
+    <div class="logo-grid fade-up">
+      <div class="logo-item">□ Queue</div>
+      <div class="logo-item">▲ アッテル</div>
+      <div class="logo-item">Strobo</div>
+      <div class="logo-item">CUZEN MATCHA</div>
+      <div class="logo-item">BUILDS</div>
+      <div class="logo-item">GATARI Inc.</div>
+      <div class="logo-item">PalledAd</div>
+      <div class="logo-item">MeetsMore</div>
+      <div class="logo-item">ventus</div>
+      <div class="logo-item">BluAge</div>
+      <div class="logo-item">stayway</div>
+    </div>
+
+    <p class="portfolio-sub fade-up">本ファンド（GP: UT創業者の会LLP）投資実績</p>
+    <div class="logo-grid fade-up">
+      <div class="logo-item">Mathmaji</div>
+      <div class="logo-item">SOELU</div>
+      <div class="logo-item">補助金クラウド</div>
+      <div class="logo-item">Emobi</div>
+      <div class="logo-item">BIONIC M</div>
+      <div class="logo-item">okke</div>
+      <div class="logo-item">HiTalent</div>
+      <div class="logo-item">TownDoctor</div>
+      <div class="logo-item">X CAPITAL</div>
+      <div class="logo-item">メタバースクリエイターズ</div>
+      <div class="logo-item">Sally</div>
+      <div class="logo-item">EduCare</div>
+      <div class="logo-item">Spacely</div>
+      <div class="logo-item">RICOS</div>
+      <div class="logo-item">CAST CRAFT</div>
+      <div class="logo-item">CUZEN MATCHA</div>
+      <div class="logo-item">Connect Afya</div>
+      <div class="logo-item">HikariQ</div>
+      <div class="logo-item">まん福</div>
+      <div class="logo-item">alumnote</div>
+      <div class="logo-item">TricoLogic</div>
+      <div class="logo-item">Recho</div>
+      <div class="logo-item">meltly</div>
+      <div class="logo-item">BANKEY</div>
+      <div class="logo-item">Morus</div>
+      <div class="logo-item">issin</div>
+      <div class="logo-item">cizucu</div>
+    </div>
+
+    <div class="portfolio-cta fade-up">
+      <a href="#" class="btn-outline">実績の詳細はこちらから</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid fade-up">
+    <div class="stat-box">
+      <p class="stat-label">FUND SIZE</p>
+      <p class="stat-value">10-15<small style="font-size:20px">億円</small></p>
+      <p class="stat-desc">ファンドサイズ</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-label">INVESTMENT</p>
+      <p class="stat-value">500万<small style="font-size:20px">〜</small>1億</p>
+      <p class="stat-desc">投資金額</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-label">CONDITION</p>
+      <p class="stat-value" style="font-size:22px; padding-top:10px;">東大在籍・出身者</p>
+      <p class="stat-desc">東京大学在籍者・出身者が創業し経営するスタートアップ</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-label">REVIEW PERIOD</p>
+      <p class="stat-value">約2<small style="font-size:20px">カ月</small></p>
+      <p class="stat-desc">審査期間</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="activities-inner">
+    <p class="section-label fade-up">ACTIVITIES</p>
+    <h2 class="section-title-jp fade-up">活動について</h2>
+    <p style="font-size:14px; color:var(--text-mid); line-height:2; max-width:640px; margin-bottom:64px; letter-spacing:0.04em;" class="fade-up">
+      「ピッチイベント」や「パネルディスカッション」だけでなく、定期的な懇親会など、さまざまな活動を行なっております。
+    </p>
+
+    <div class="activity-block fade-up">
+      <div class="activity-img">
+        <div class="activity-img-placeholder">
+          <span class="activity-img-label">PITCH</span>
+        </div>
+      </div>
+      <div class="activity-content">
+        <p class="activity-en">PITCH EVENT</p>
+        <div class="activity-line"></div>
+        <p class="activity-desc">スタートアップによるピッチイベント。エンジェル投資家や他ベンチャーキャピタルや事業会社との連携も含めた起業家支援も。</p>
+      </div>
+    </div>
+
+    <div class="activity-block reverse fade-up">
+      <div class="activity-img">
+        <div class="activity-img-placeholder">
+          <span class="activity-img-label">PANEL</span>
+        </div>
+      </div>
+      <div class="activity-content">
+        <p class="activity-en">PANEL DISCUSSION</p>
+        <div class="activity-line"></div>
+        <p class="activity-desc">定期的に開催するイベントにて、東大出身の上場経験者を中心に先輩起業家のハードシングスやノウハウをディスカッション形式で共有。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="benefits-inner">
+    <p class="section-label" style="color:var(--accent-light);" class="fade-up">WHAT WE OFFER</p>
+    <div class="benefits-cards fade-up">
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3 class="benefit-title">起業家ネットワークの提供</h3>
+        <p class="benefit-desc">東大出身者で創業した上場メンバーとのネットワークを事業に活用</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏢</div>
+        <h3 class="benefit-title">メンバー企業のサービス優待</h3>
+        <p class="benefit-desc">シェアオフィス拠点・人材採用などメンバー企業のサービス優待</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💡</div>
+        <h3 class="benefit-title">メンターサポート</h3>
+        <p class="benefit-desc">メンターサポートによる、上場経験を持つ先輩起業家からのアドバイス</p>
+      </div>
+    </div>
+    <p class="benefits-quote fade-up">
+      「東大創業者の会応援ファンド」は、「事業資金」だけでなく「ネットワーク」や「自分たちの経験」のような総合的なサポート体制で東大出身の若手起業家を応援いたします。
+    </p>
+  </div>
+</section>
+
+<!-- JOIN US -->
+<section id="join">
+  <div class="join-inner fade-up">
+    <p class="section-label">JOIN US</p>
+    <h2 class="section-title-jp">入会を希望される方へ</h2>
+    <p style="font-size:14px; color:var(--text-mid); line-height:2; letter-spacing:0.04em;">以下の条件を満たす方は、どなたでも東大創業者の会コミュニティにご入会いただけます。入会を希望される方は、下のフォームよりご登録をお願いします。事務局にて条件を満たしているかを確認の上、入会手続きを行います。</p>
+    <ul class="join-conditions">
+      <li>東京大学、東京大学大学院出身もしくは在学中の方（中退を含む）</li>
+      <li>会社の創業者 かつ オーナー</li>
+      <li>上場もしくは同等の目標がある起業家または起業予定者</li>
+    </ul>
+    <a href="#" class="btn-solid">入会はこちらから</a>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="media-inner">
+    <p class="section-label fade-up">MEDIA</p>
+    <h2 class="section-title-jp fade-up">メンバー企業のメディア掲載情報</h2>
+    <div class="media-cards fade-up">
+      <div class="media-card">
+        <div class="media-card-img"><span class="media-card-img-label">ASU+GSV</span></div>
+        <div class="media-card-body">
+          <h3 class="media-card-title">Mathmaji社が、EdTechカンファレンス「ASU+GSV Summit 2026」の日本予選で最優秀賞を獲得しました</h3>
+          <p class="media-card-excerpt">Mathmaji社が、一般社団法人グローバルEdTech推進委員会主催による「ASU（アリゾナ州立大学）+GSV（グローバルシリコンバレー）Summit 2026 日本予選」で最優秀賞を獲得しました。</p>
+          <p class="media-card-date">2025/02/23</p>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-card-img"><span class="media-card-img-label">事業計画</span></div>
+        <div class="media-card-body">
+          <h3 class="media-card-title">株式会社プロファイナンス 木村氏の著書が発売されました</h3>
+          <p class="media-card-excerpt">事業計画・予実管理ツール「Vividir（ビビディア）」を提供する株式会社プロファイナンスの代表である木村氏が従前より提供していた「事業計画講座」を基に、中央経済社より著書が出版されました。</p>
+          <p class="media-card-date">2024/12/09</p>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-card-img"><span class="media-card-img-label">すごいVC</span></div>
+        <div class="media-card-body">
+          <h3 class="media-card-title">まん福ホールディングス株式会社、株式会社Alumnoteが「すごいベンチャー100」に選出されました</h3>
+          <p class="media-card-excerpt">東洋経済が毎年選出する「すごいベンチャー100」の2024年版に、出資先のまん福ホールディングス株式会社と株式会社Alumnoteが選出されました。</p>
+          <p class="media-card-date">2024/11/7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members">
+  <div class="members-inner">
+    <p class="section-label fade-up">MEMBERS</p>
+    <h2 class="section-title-jp fade-up">創立メンバー紹介</h2>
+    <p class="members-lead fade-up">2010年に発足した「東大創業者の会」は、2018年にファンドを立ち上げこれまで10社への出資・事業支援を行って参りました。今後さらに支援の輪を広げ、「事業資金/ネットワーク/メンタリング」という多様な視点から東大出身事業家の上場をサポートするため、2022年5月に新「東大創業者の会ファンド」を東大創業者の会の発起人である下記4人のメンバーによって設立されました。</p>
+
+    <div class="members-grid fade-up">
+      <div class="member-card">
+        <div class="member-photo"><div class="member-photo-placeholder">ITO</div></div>
+        <div class="member-info">
+          <h3 class="member-name">伊藤 豊</h3>
+          <p class="member-company">スローガン株式会社</p>
+          <p class="member-role">創業者</p>
+          <p class="member-bio">東京大学文学部行動文化学科卒業後、2000年に日本IBM株式会社に入社。2005年末にスローガン株式会社を設立、代表取締役に就任。2021年東証マザーズ上場。2023年2月末で社長退任し、現はKMFG株式会社代表をはじめいくつかの営利・非営利の組織に関わる。</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo"><div class="member-photo-placeholder">OGU</div></div>
+        <div class="member-info">
+          <h3 class="member-name">小倉 弘之</h3>
+          <p class="member-company">gooddaysホールディングス株式会社</p>
+          <p class="member-role">代表取締役</p>
+          <p class="member-bio">東京大学経済学部卒業後、竹中工務店・BCGに勤務。2009年にハプティック株式会社、2013年にグッドルーム株式会社を創業。2016年にグループ3社から成るgooddaysホールディングス株式会社を創業し、代表取締役副社長に就任。2019年東証マザーズ上場。</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo"><div class="member-photo-placeholder">SUG</div></div>
+        <div class="member-info">
+          <h3 class="member-name">菅原 貴弘</h3>
+          <p class="member-company">株式会社エルテス</p>
+          <p class="member-role">代表取締役社長</p>
+          <p class="member-bio">東京大学経済学部に在学中の2004年にエルテスを創業。ビッグデータ解析・ソーシャルリスクマネジメントを行う。2016年東証マザーズ上場。</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo"><div class="member-photo-placeholder">MIZ</div></div>
+        <div class="member-info">
+          <h3 class="member-name">水永 政志</h3>
+          <p class="member-company">スター・マイカ・ホールディングス株式会社</p>
+          <p class="member-role">代表取締役社長</p>
+          <p class="member-bio">東京大学農学部卒業後、三井物産・BCG・ゴールドマンサックスに勤務。2002年にスター・マイカを創業。中古マンション流通を中心に様々な不動産サービスを提供。2006年ジャスダック、2017年東証1部上場。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label" style="color:var(--accent-light);">CONTACT</p>
+    <h2 class="section-title-jp">お問合せはこちら</h2>
+    <div class="contact-notes fade-up">
+      <p>※入会希望の方は、このページの上部に入会申請フォームがございますので、そちらからご記入をお願いします。</p>
+      <p>※出資条件を満たさない方からの出資のご相談が増えています。創業者もしくは、経営陣に東大出身(中退・院卒含む)の方がいらっしゃることが当会の出資条件となっておりますので、今一度ご確認くださいませ。</p>
+      <p>※コピー&ペーストの文章でのお問い合わせにはご連絡しかねますので、ご了承ください。</p>
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">お名前</label>
+      <input type="text" class="form-input" placeholder="お名前を入力してください" />
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">メールアドレス</label>
+      <input type="email" class="form-input" placeholder="メールアドレスを入力してください" />
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">会社名/役職</label>
+      <input type="text" class="form-input" placeholder="ご所属を入力してください" />
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">東大への入学年度</label>
+      <input type="text" class="form-input" placeholder="ご所属を入力してください" />
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">出身学部/研究科</label>
+      <input type="text" class="form-input" placeholder="ご所属を入力してください" />
+    </div>
+    <div class="form-group fade-up">
+      <label class="form-label">お問合せ内容</label>
+      <textarea class="form-textarea" placeholder="お問合せ内容を入力してください"></textarea>
+    </div>
+    <button class="form-submit fade-up">送信する</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    東大創業者の会ファンド
+    <span>U-TOKYO ENTREPRENEUR SUPPORTER'S CLUB INCUBATION FUND</span>
+  </div>
+  <div class="footer-sns">
+    <a href="#">Facebook</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-up animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
