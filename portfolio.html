@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — 東大創業者の会ファンド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ─── ポートフォリオページ固有スタイル ─── */
+
+    .portfolio-section {
+      padding: 80px 64px;
+    }
+
+    .portfolio-section:nth-child(odd) {
+      background: var(--white);
+    }
+
+    .portfolio-section:nth-child(even) {
+      background: var(--cream);
+    }
+
+    .portfolio-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .portfolio-section-header {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portfolio-section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── 3カラムカードグリッド ─── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      padding: 40px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: box-shadow 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-section:nth-child(even) .portfolio-card {
+      background: var(--white);
+    }
+
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: 0 8px 32px rgba(15,31,61,0.08);
+      transform: translateY(-3px);
+    }
+
+    .portfolio-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* ─── ロゴエリア ─── */
+    .card-logo {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .card-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* ロゴ画像がない場合のプレースホルダー */
+    .card-logo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--steel);
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 8px;
+    }
+
+    /* ─── カード下部テキスト ─── */
+    .card-body {
+      text-align: center;
+      width: 100%;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 20px;
+    }
+
+    .card-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .card-status {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 4px 12px;
+      border-radius: 0;
+    }
+
+    .card-status.active {
+      color: var(--accent);
+      border: 1px solid rgba(74,127,193,0.3);
+      background: rgba(74,127,193,0.05);
+    }
+
+    .card-status.ma {
+      color: var(--text-light);
+      border: 1px solid rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.02);
+    }
+
+    .card-status.trade {
+      color: #6b7280;
+      border: 1px solid rgba(107,114,128,0.3);
+      background: rgba(107,114,128,0.05);
+    }
+
+    /* ─── イントロセクション ─── */
+    .portfolio-intro {
+      background: var(--navy);
+      padding: 80px 64px;
+    }
+
+    .portfolio-intro-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .portfolio-intro-text .section-title-jp {
+      color: var(--white);
+    }
+
+    .portfolio-intro-body {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+    }
+
+    .portfolio-intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(74,127,193,0.15);
+    }
+
+    .portfolio-intro-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .portfolio-intro-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-intro-stat-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent-light);
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-section { padding: 60px 32px; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-intro { padding: 60px 32px; }
+      .portfolio-intro-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html#news">NEWS</a></li>
+    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html#activities">ACTIVITIES</a></li>
+    <li><a href="index.html#members">MEMBERS</a></li>
+    <li><a href="portfolio.html" style="color:var(--accent-light);">PORTFOLIO</a></li>
+    <li><a href="events.html">EVENTS</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-contact">CONTACT</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">PORTFOLIO</p>
+    <h1 class="page-hero-title">投資先一覧</h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="portfolio-intro fade-up">
+  <div class="portfolio-intro-inner">
+    <div class="portfolio-intro-text">
+      <p class="section-label" style="color:var(--accent-light);">PORTFOLIO</p>
+      <h2 class="section-title-jp">東大創業者の会<br>ファンドのこれまで</h2>
+      <div class="divider"></div>
+      <p class="portfolio-intro-body">
+        2018年に立ち上がった「東大創業者の会応援ファンド」は、2021年までの3年間、前身ファンド（GP: Angel Bridge）として下記メンバーのもと11社への出資・事業支援を行って参りました。<br><br>
+        また、2022年より本ファンド（GP: UT創業者の会LLP）として、下記27社への出資・事業支援を行って参りました。
+      </p>
+    </div>
+    <div class="portfolio-intro-stats">
+      <div class="portfolio-intro-stat">
+        <p class="portfolio-intro-stat-num">11</p>
+        <p class="portfolio-intro-stat-label">前身ファンド投資先</p>
+      </div>
+      <div class="portfolio-intro-stat">
+        <p class="portfolio-intro-stat-num">27</p>
+        <p class="portfolio-intro-stat-label">本ファンド投資先</p>
+      </div>
+      <div class="portfolio-intro-stat">
+        <p class="portfolio-intro-stat-num">38</p>
+        <p class="portfolio-intro-stat-label">累計投資先</p>
+      </div>
+      <div class="portfolio-intro-stat">
+        <p class="portfolio-intro-stat-num">2018</p>
+        <p class="portfolio-intro-stat-label">ファンド設立</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 前身ファンド -->
+<section class="portfolio-section">
+  <div class="portfolio-section-inner">
+    <div class="portfolio-section-header fade-up">
+      <p class="portfolio-section-label">2018 — 2021</p>
+      <h2 class="portfolio-section-title">前身ファンド（GP: Angel Bridge）投資実績</h2>
+    </div>
+
+    <div class="cards-grid fade-up">
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/gatari.png" alt="GATARI Inc." onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">GATARI Inc.</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社GATARI</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/meetsmore.png" alt="MeetsMore" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">MeetsMore</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社ミツモア</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/attel.png" alt="アッテル" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">アッテル</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社アッテル</p>
+          <span class="card-status ma">M&A</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/cuzenmatcha.png" alt="CUZEN MATCHA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">CUZEN MATCHA</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">World Matcha 株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/ventus.png" alt="ventus" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">ventus</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社ventus</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/strobo.png" alt="Strobo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Strobo</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Strobo</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/stayway.png" alt="stayway" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">stayway</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Stayway</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/queue.png" alt="Queue" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Queue</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Queue</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/palledad.png" alt="PalledAd" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">PalledAd</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社PalledAd</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/builds.png" alt="BUILDS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">BUILDS</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Builds</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/bluage.png" alt="BluAge" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">BluAge</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社BluAge</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 本ファンド -->
+<section class="portfolio-section">
+  <div class="portfolio-section-inner">
+    <div class="portfolio-section-header fade-up">
+      <p class="portfolio-section-label">2022 — PRESENT</p>
+      <h2 class="portfolio-section-title">本ファンド（GP: UT創業者の会LLP）投資実績</h2>
+    </div>
+
+    <div class="cards-grid fade-up">
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/cizucu.png" alt="cizucu" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">cizucu</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社cizucu</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/issin.png" alt="issin" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">issin</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">issinホールディングス株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/morus.png" alt="Morus" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Morus</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">Morus株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/bankey.png" alt="BANKEY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">BANKEY</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社BANKEY</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/soelu.png" alt="SOELU" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">SOELU</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">SOELU株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/tricologic.png" alt="TricoLogic" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">TricoLogic</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社TricoLogic</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/spacely.png" alt="Spacely" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Spacely</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Spacely</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/emobi.png" alt="eMoBi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">eMoBi</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社eMoBi</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/recho.png" alt="Recho" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Recho</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Recho</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/hikariq.png" alt="HikariQ Health" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">HikariQ Health</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社HikariQ Health</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/manfuku.png" alt="まん福" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">まん福</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">まん福ホールディングス株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/castcraft.png" alt="CAST CRAFT" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">CAST CRAFT</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社キャスコード</p>
+          <span class="card-status trade">Trade sale</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/hojokinkumo.png" alt="補助金クラウド" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">補助金クラウド</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Stayway</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/ricos.png" alt="RICOS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">RICOS</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社RICOS</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/sally.png" alt="Sally" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Sally</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Sally</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/okke.png" alt="okke" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">okke</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社okke</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/metaverse.png" alt="メタバースクリエイターズ" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">メタバースクリエイターズ</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社メタバースクリエイターズ</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/meltly.png" alt="meltly" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">meltly</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">Meltly株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/mathmaji.png" alt="Mathmaji" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Mathmaji</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Mathmaji</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/bionicm.png" alt="BIONIC M" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">BIONIC M</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">BionicM株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/alumnote.png" alt="alumnote" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">alumnote</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社Alumnote</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/educare.png" alt="EduCare" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">EduCare</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社 EduCare</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/towndoctor.png" alt="TownDoctor" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">TownDoctor</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">タウンドクター株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/xcapital.png" alt="X Capital" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">X Capital</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社 X Capital</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/connectafya.png" alt="Connect Afya" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">Connect Afya</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">株式会社 Connect Afya</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/cuzenmatcha2.png" alt="CUZEN MATCHA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">CUZEN MATCHA</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">World Matcha 株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-logo">
+          <img src="images/portfolio/hitalent.png" alt="HiTalent" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="card-logo-placeholder" style="display:none;">HiTalent</div>
+        </div>
+        <div class="card-body">
+          <p class="card-name">ハイタレント株式会社</p>
+          <span class="card-status active">Active</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    東大創業者の会ファンド
+    <span>U-TOKYO ENTREPRENEUR SUPPORTER'S CLUB INCUBATION FUND</span>
+  </div>
+  <div class="footer-sns">
+    <a href="#">Facebook</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
