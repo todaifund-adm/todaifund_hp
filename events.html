@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — 東大創業者の会ファンド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ─── イベントページ固有スタイル ─── */
+
+    /* ─── 開催予定セクション ─── */
+    .events-upcoming {
+      background: var(--white);
+      padding: 80px 64px;
+    }
+
+    .events-upcoming-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .events-empty {
+      padding: 64px 0;
+      text-align: center;
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+
+    /* 開催予定カード */
+    .upcoming-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      transition: box-shadow 0.25s, transform 0.25s;
+      overflow: hidden;
+    }
+
+    .upcoming-card:hover {
+      box-shadow: 0 8px 32px rgba(15,31,61,0.08);
+      transform: translateY(-2px);
+    }
+
+    .upcoming-card-date {
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .upcoming-card-month {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--accent-light);
+      margin-bottom: 4px;
+    }
+
+    .upcoming-card-day {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .upcoming-card-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .upcoming-card-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .upcoming-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+    }
+
+    .upcoming-card-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .upcoming-card-meta span {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .upcoming-card-link {
+      display: inline-block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      padding: 8px 20px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .upcoming-card-link:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ─── 過去イベントセクション ─── */
+    .events-past {
+      background: var(--cream);
+      padding: 80px 64px;
+    }
+
+    .events-past-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .events-past-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+    }
+
+    /* 過去イベントリスト */
+    .past-event {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      transition: opacity 0.2s;
+    }
+
+    .past-event:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .past-event:hover { opacity: 0.8; cursor: pointer; }
+
+    .past-event-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--navy-mid);
+    }
+
+    .past-event-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .past-event:hover .past-event-img img {
+      transform: scale(1.03);
+    }
+
+    /* 画像がない場合のプレースホルダー */
+    .past-event-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a3260 0%, #0f2550 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: rgba(74,127,193,0.2);
+      aspect-ratio: 16/9;
+    }
+
+    .past-event-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .past-event-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    .past-event-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 900px) {
+      .events-upcoming { padding: 60px 32px; }
+      .events-past { padding: 60px 32px; }
+      .upcoming-card { grid-template-columns: 90px 1fr; }
+      .past-event { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html#news">NEWS</a></li>
+    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html#activities">ACTIVITIES</a></li>
+    <li><a href="index.html#members">MEMBERS</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
+    <li><a href="events.html" style="color:var(--accent-light);">EVENTS</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-contact">CONTACT</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">EVENTS</p>
+    <h1 class="page-hero-title">イベント情報</h1>
+  </div>
+</section>
+
+<!-- 開催予定のイベント -->
+<section class="events-upcoming">
+  <div class="events-upcoming-inner">
+    <p class="section-label fade-up">EVENTS</p>
+    <h2 class="section-title-jp fade-up">開催予定のイベント一覧</h2>
+    <p style="font-size:14px; color:var(--text-mid); line-height:2; letter-spacing:0.04em; margin-bottom:48px;" class="fade-up">
+      開催予定のイベントの一覧です。ぜひ詳細をご確認の上、お申し込みください。
+    </p>
+
+    <!-- 開催予定イベントがある場合はここに追加 -->
+    <!-- 例：
+    <div class="upcoming-card fade-up">
+      <div class="upcoming-card-date">
+        <p class="upcoming-card-month">MAY</p>
+        <p class="upcoming-card-day">15</p>
+        <p class="upcoming-card-year">2026</p>
+      </div>
+      <div class="upcoming-card-body">
+        <h3 class="upcoming-card-title">イベントタイトルをここに入力</h3>
+        <div class="upcoming-card-meta">
+          <span>🕐 19:00〜21:00</span>
+          <span>📍 goodoffice新橋</span>
+        </div>
+        <a href="#" class="upcoming-card-link">詳細・申し込みはこちら</a>
+      </div>
+    </div>
+    -->
+
+    <div class="events-empty fade-up">
+      現在、開催予定のイベントはございません
+    </div>
+
+  </div>
+</section>
+
+<!-- 過去のイベント -->
+<section class="events-past">
+  <div class="events-past-inner">
+    <p class="section-label fade-up">EVENTS</p>
+    <h2 class="section-title-jp fade-up">過去のイベント一覧</h2>
+    <p class="events-past-desc fade-up">
+      東大創業者の会では、メンバーの皆様にとって学びと出会いの多いコミュニティを目指し、定期的にイベントを開催しています。<br>
+      年に2回のMEET UPイベントに加え、東京大学との公式コラボイベントや、企業とのコラボイベントも開催しています。<br>
+      過去のイベントの様子は、以下の詳細をご覧ください。
+    </p>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/svco2026.jpg" alt="SVCOアカデミーコラボ勉強会"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2026/1/9</p>
+        <h3 class="past-event-title">SVCOアカデミーコラボ「高い企業価値を目指すエクイティストーリーとは？」勉強会</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/jigyokeikaku2025.jpg" alt="事業計画の極意講演会"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2025/11/13</p>
+        <h3 class="past-event-title">スタートアップの事業成長を加速する「事業計画の極意」講演会</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/amari2025.jpg" alt="甘利俊一先生座談会"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2025/10/18</p>
+        <h3 class="past-event-title">甘利俊一先生座談会 with 藤井総長＋東大出身スタートアップ厳選5社ピッチ</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/google2025.jpg" alt="知と革新のフロンティア共創"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2025/??/??</p>
+        <h3 class="past-event-title">知と革新のフロンティア共創 — AI・起業・グローバルが織りなす未来創造セッション supported by Google</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/fva2025.jpg" alt="東大創業者の会×ファイナンシャル・バリュー&アドバイザーズ"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2025/04/09</p>
+        <h3 class="past-event-title">東大創業者の会×ファイナンシャル・バリュー&アドバイザーズ 勉強会イベント</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/meetup7.jpg" alt="第7回 東大創業者の会 MEET UP"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2024/10/23</p>
+        <h3 class="past-event-title">第7回 東大創業者の会 MEET UP イベント</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/todaikikin2024.jpg" alt="東大出身起業家の集い"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2024/03/26</p>
+        <h3 class="past-event-title">東大出身起業家の集い（東大基金×東大創業者の会）</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/meetup6.jpg" alt="第6回 東大創業者の会 MEET UP"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2023/12/20</p>
+        <h3 class="past-event-title">第6回 東大創業者の会 MEET UP イベント</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/meetup5.jpg" alt="第5回 東大創業者の会 MEET UP"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2023/07/14</p>
+        <h3 class="past-event-title">第5回 東大創業者の会 MEET UP イベント</h3>
+      </div>
+    </div>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <img src="images/events/meetup4.jpg" alt="第4回 東大創業者の会 MEET UP"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="past-event-img-placeholder" style="display:none;">EVENT</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2022/12/13</p>
+        <h3 class="past-event-title">第4回 東大創業者の会 MEET UP イベント</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    東大創業者の会ファンド
+    <span>U-TOKYO ENTREPRENEUR SUPPORTER'S CLUB INCUBATION FUND</span>
+  </div>
+  <div class="footer-sns">
+    <a href="#">Facebook</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
