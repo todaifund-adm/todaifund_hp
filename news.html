@@ -99,6 +99,11 @@
       color: var(--text-dark);
       line-height: 1.7;
       letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+
+    .news-page-title:hover {
+      color: var(--accent);
     }
 
     @media (max-width: 900px) {
@@ -115,6 +120,7 @@
 <!-- NAV -->
 <nav>
   <ul class="nav-links">
+    <li><a href="index.html">TOP</a></li>
     <li><a href="index.html#news" style="color:var(--accent-light);">NEWS</a></li>
     <li><a href="index.html#about">ABOUT</a></li>
     <li><a href="index.html#activities">ACTIVITIES</a></li>
@@ -146,81 +152,7 @@
       <button class="news-filter-btn" onclick="filterNews('investment', this)">INVESTMENT</button>
     </div>
 
-    <ul class="news-page-list fade-up">
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2026/01/09</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">東大創業者の会×SVCOアカデミー 「高い企業価値を目指すエクイティストーリーとは？」勉強会イベントを開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2025/12/20</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">【2026/1/9(金)開催】「高い企業価値を目指すエクイティストーリーとは？」勉強会型イベントのお知らせ</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2025/11/13</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">スタートアップの事業成長を加速する「事業計画の極意」講演会を開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2025/10/01</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">【11/13(木)開催】スタートアップの事業成長を加速する「事業計画の極意」講演会のお知らせ</span>
-      </li>
-
-      <li class="news-page-item" data-category="investment">
-        <span class="news-page-date">2025/02/23</span>
-        <span class="news-page-category">INVESTMENT</span>
-        <span class="news-page-title">Mathmaji社が、EdTechカンファレンス「ASU+GSV Summit 2026」の日本予選で最優秀賞を獲得しました</span>
-      </li>
-
-      <li class="news-page-item" data-category="info">
-        <span class="news-page-date">2024/12/09</span>
-        <span class="news-page-category">INFO</span>
-        <span class="news-page-title">株式会社プロファイナンス 木村氏の著書が発売されました</span>
-      </li>
-
-      <li class="news-page-item" data-category="investment">
-        <span class="news-page-date">2024/11/07</span>
-        <span class="news-page-category">INVESTMENT</span>
-        <span class="news-page-title">まん福ホールディングス株式会社、株式会社Alumnoteが「すごいベンチャー100」に選出されました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2024/10/23</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">第7回 東大創業者の会 MEET UP イベントを開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2024/03/26</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">東大出身起業家の集い（東大基金×東大創業者の会）を開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2023/12/20</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">第6回 東大創業者の会 MEET UP イベントを開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2023/07/14</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">第5回 東大創業者の会 MEET UP イベントを開催いたしました</span>
-      </li>
-
-      <li class="news-page-item" data-category="event">
-        <span class="news-page-date">2022/12/13</span>
-        <span class="news-page-category">EVENT</span>
-        <span class="news-page-title">第4回 東大創業者の会 MEET UP イベントを開催いたしました</span>
-      </li>
-
-    </ul>
+    <ul class="news-page-list" id="news-list"></ul>
   </div>
 </section>
 
@@ -235,6 +167,7 @@
   </div>
 </footer>
 
+<script src="js/news-data.js"></script>
 <script>
   // スクロールアニメーション
   const observer = new IntersectionObserver((entries) => {
@@ -244,21 +177,31 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+  // ニュースを描画する関数
+  function renderNews(filter = 'all') {
+    const list = document.getElementById('news-list');
+    const filtered = filter === 'all'
+      ? newsData
+      : newsData.filter(item => item.category === filter);
+
+    list.innerHTML = filtered.map(item => `
+      <li class="news-page-item" data-category="${item.category}">
+        <span class="news-page-date">${item.date}</span>
+        <span class="news-page-category">${item.category.toUpperCase()}</span>
+        <a href="${item.url}" class="news-page-title">${item.title}</a>
+      </li>
+    `).join('');
+  }
+
   // カテゴリフィルター
   function filterNews(category, btn) {
-    // ボタンのactiveを切り替え
     document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    // リストの表示切り替え
-    document.querySelectorAll('.news-page-item').forEach(item => {
-      if (category === 'all' || item.dataset.category === category) {
-        item.style.display = 'grid';
-      } else {
-        item.style.display = 'none';
-      }
-    });
+    renderNews(category);
   }
+
+  // 初期表示
+  renderNews();
 </script>
 </body>
 </html>
