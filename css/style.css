@@ -189,6 +189,14 @@ nav {
   background: rgba(255,255,255,0.2);
 }
 
+.hero {
+  background: 
+    linear-gradient(160deg, rgba(10,22,40,0.85) 0%, rgba(15,37,80,0.75) 55%, rgba(26,58,114,0.7) 100%),
+    url('../images/ファンド画像キット/top.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 /* ============================================================
    PAGE HERO（サブページ用）
    ============================================================ */
