@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ─── Newsページ固有スタイル ─── */
 
     .news-page {
       background: var(--white);
@@ -21,7 +20,6 @@
       margin: 0 auto;
     }
 
-    /* ─── カテゴリフィルター ─── */
     .news-filter {
       display: flex;
       gap: 8px;
@@ -48,7 +46,6 @@
       border-color: var(--navy);
     }
 
-    /* ─── ニュースリスト ─── */
     .news-page-list {
       list-style: none;
     }
@@ -144,7 +141,6 @@
 <section class="news-page">
   <div class="news-page-inner">
 
-    <!-- カテゴリフィルター -->
     <div class="news-filter fade-up">
       <button class="news-filter-btn active" onclick="filterNews('all', this)">ALL</button>
       <button class="news-filter-btn" onclick="filterNews('event', this)">EVENT</button>
@@ -169,7 +165,6 @@
 
 <script src="js/news-data.js"></script>
 <script>
-  // スクロールアニメーション
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => {
       if (el.isIntersecting) el.target.classList.add('visible');
@@ -177,7 +172,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // ニュースを描画する関数
   function renderNews(filter = 'all') {
     const list = document.getElementById('news-list');
     const filtered = filter === 'all'
@@ -193,14 +187,12 @@
     `).join('');
   }
 
-  // カテゴリフィルター
   function filterNews(category, btn) {
     document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderNews(category);
   }
 
-  // 初期表示
   renderNews();
 </script>
 </body>
