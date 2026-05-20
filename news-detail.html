@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ─── 記事ページ固有スタイル ─── */
 
     .article-page {
       background: var(--white);
@@ -21,7 +20,6 @@
       margin: 0 auto;
     }
 
-    /* ─── メタ情報（日付・カテゴリ） ─── */
     .article-meta {
       display: flex;
       align-items: center;
@@ -45,7 +43,6 @@
       border: 1px solid var(--border);
     }
 
-    /* ─── タイトル ─── */
     .article-title {
       font-family: 'Noto Serif JP', serif;
       font-size: 24px;
@@ -58,7 +55,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ─── 本文 ─── */
     .article-body {
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 15px;
@@ -96,7 +92,6 @@
       margin: 2em 0;
     }
 
-    /* ─── テーブル（ファンド概要など） ─── */
     .article-body table {
       width: 100%;
       max-width: 660px;
@@ -119,7 +114,6 @@
       width: 130px;
     }
 
-    /* ─── 戻るリンク ─── */
     .article-back {
       display: inline-flex;
       align-items: center;
@@ -140,7 +134,6 @@
       border-color: var(--accent);
     }
 
-    /* ─── 404 ─── */
     .article-not-found {
       text-align: center;
       padding: 80px 0;
@@ -200,14 +193,12 @@
 
 <script src="js/news-data.js"></script>
 <script>
-  // URLからslugを取得
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug');
 
   const container = document.getElementById('article-content');
 
   if (!slug) {
-    // slugなし → ニュース一覧へリダイレクト
     window.location.href = 'news.html';
   } else {
     const article = newsData.find(item => item.slug === slug);
@@ -220,7 +211,6 @@
         </div>
       `;
     } else {
-      // タイトルをページタイトルにも反映
       document.title = article.title + ' — 東大創業者の会ファンド';
 
       const categoryLabel = {
@@ -241,7 +231,6 @@
         <a href="news.html" class="article-back fade-up">← BACK TO NEWS</a>
       `;
 
-      // スクロールアニメーション
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(el => {
           if (el.isIntersecting) el.target.classList.add('visible');
