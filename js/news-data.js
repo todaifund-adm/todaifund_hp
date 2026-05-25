@@ -724,3 +724,13 @@ const newsData = [
 <p>19:00-　懇親会</p>`
   },
 ];
+
+document.querySelectorAll('.past-event[data-slug]').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    const slug = card.dataset.slug;
+    window.location.href = `news-detail.html?slug=${slug}`;
+    // 新しいタブで開く場合は↓
+    // window.open(`news.html?slug=${slug}`, '_blank');
+  });
+});
