@@ -132,7 +132,11 @@ const newsData = [
     title: "「issinホールディングス株式会社」へ出資しました",
     url: "news-detail.html?slug=aYITY2UU",
     image: "",
-    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「issinホールディングス株式会社」（以下、issin社）へ出資を実行したことをお知らせいたします。</p><p>issin社は、「生命力溢れる世界を実現する」をビジョンに掲げ、体重測定できるバスマット「スマートバスマット」、効率良く簡単に運動習慣を身につけることができるエクササイズサービス「Smart 5min（スマートファイブミニッツ）」、専門家とAIが最適な健康アクションを提案する生活習慣改善サービス「Smart Daily（スマートデイリー）」などの開発・提供を行なっています。</p><p>今後もハードウェアとソフトウェアを融合したサービスの開発・改善を進め、日常に溶け込むヘルスケア体験の実現を加速させます。今回の調達資金は、既存事業の拡大、新規事業の研究開発、海外展開に活用するほか、年内にはスリープテック事業への参入も予定しています。</p><p>東大創業者の会ファンドは、今後のissin社のご活躍を期待しています。</p><p>issinホールディングス株式会社のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000062.000103350.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000062.000103350.html</a></p><p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
+    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「issinホールディングス株式会社」（以下、issin社）へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/issin_logo.png" alt="issin社ロゴ" style="width:100%; margin:24px 0;" />
+    <p>issin社は、「生命力溢れる世界を実現する」をビジョンに掲げ、体重測定できるバスマット「スマートバスマット」、効率良く簡単に運動習慣を身につけることができるエクササイズサービス「Smart 5min（スマートファイブミニッツ）」、専門家とAIが最適な健康アクションを提案する生活習慣改善サービス「Smart Daily（スマートデイリー）」などの開発・提供を行なっています。</p><p>今後もハードウェアとソフトウェアを融合したサービスの開発・改善を進め、日常に溶け込むヘルスケア体験の実現を加速させます。今回の調達資金は、既存事業の拡大、新規事業の研究開発、海外展開に活用するほか、年内にはスリープテック事業への参入も予定しています。</p><p>東大創業者の会ファンドは、今後のissin社のご活躍を期待しています。</p><p>issinホールディングス株式会社のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000062.000103350.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000062.000103350.html</a></p>
+    <img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
+    <p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
     slug: "YAL61__j",
