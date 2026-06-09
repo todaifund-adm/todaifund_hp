@@ -72,7 +72,10 @@ const newsData = [
     title: "「株式会社BANKEY」へ出資しました",
     url: "news-detail.html?slug=erWFYRZN",
     image: "",
-    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社BANKEY」（以下、BANKEY社）へ出資を実行したことをお知らせいたします。</p><p>BANKEY社は、銀行口座間決済を活用し、企業の代金回収プロセスのデジタル化を推進するフィンテック企業です。銀行インフラを活かしたスムーズな決済体験を提供し、企業・消費者双方の利便性を向上させることを目指しています。</p><p>BANKEYが提供するPay By Bankは企業が自社サービスに埋め込んで利用可能なデジタル決済サービスです。ローンチカスタマーとのPoCを通じて、実運用に向けた技術・オペレーション検証を終え、現在はサービス開始に向けた最終調整を行っています。</p><p>東大創業者の会ファンドは、今後のBANKEY社のご活躍を期待しています。</p><p>株式会社BANKEYのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000003.000137193.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000003.000137193.html</a></p><p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
+    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社BANKEY」（以下、BANKEY社）へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/bankey.png" alt="BANKEY社のロゴ" style="width:100%; margin:24px 0;" />
+    <p>BANKEY社は、銀行口座間決済を活用し、企業の代金回収プロセスのデジタル化を推進するフィンテック企業です。銀行インフラを活かしたスムーズな決済体験を提供し、企業・消費者双方の利便性を向上させることを目指しています。</p><p>BANKEYが提供するPay By Bankは企業が自社サービスに埋め込んで利用可能なデジタル決済サービスです。ローンチカスタマーとのPoCを通じて、実運用に向けた技術・オペレーション検証を終え、現在はサービス開始に向けた最終調整を行っています。</p><p>東大創業者の会ファンドは、今後のBANKEY社のご活躍を期待しています。</p><p>株式会社BANKEYのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000003.000137193.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000003.000137193.html</a></p><p style="margin-top:24px;">
+    <img src="images/news/info.png" alt="トークセッションの様子" style="width:100%; margin:24px 0;" />東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
     slug: "QttCF2oW",
