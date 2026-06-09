@@ -60,7 +60,10 @@ const newsData = [
     title: "「Morus株式会社」へ出資しました",
     url: "news-detail.html?slug=xwGopEn5",
     image: "",
-    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「Morus株式会社」（以下、Morus社）へ出資を実行したことをお知らせいたします。</p><p>Morusは蚕の潜在的な機能性に着目し、繊維/材料工学における世界屈指の学術機関である信州大学と連携し創業、現在では信州大学含む複数の国内外の研究機関とも研究開発を推進しています。</p><p>従来の産業だけでは消失しかねない国内の蚕産業も、Morusの研究技術を持って「高機能原料」として再定義することで、新たな巨大市場の創出と、日本発の産業のグローバル展開を目指します。</p><p>今後は調達資金をもとに、ASEAN市場での販売拡大、EU市場進出に向けた体制構築、国内外でのプラント建設と生産体制強化、海外事業・サプライチェーンの専門人材の採用を進め、持続可能な新素材産業の中核を担う企業を目指していきます。</p><p>東大創業者の会ファンドは、今後のMorus社のご活躍を期待しています。</p><p>Morus株式会社のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000030.000091970.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000030.000091970.html</a></p><p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
+    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「Morus株式会社」（以下、Morus社）へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/Morus_logo.jpg" alt="Mours社ロゴ" style="width:100%; margin:24px 0;" />
+    <p>Morusは蚕の潜在的な機能性に着目し、繊維/材料工学における世界屈指の学術機関である信州大学と連携し創業、現在では信州大学含む複数の国内外の研究機関とも研究開発を推進しています。</p><p>従来の産業だけでは消失しかねない国内の蚕産業も、Morusの研究技術を持って「高機能原料」として再定義することで、新たな巨大市場の創出と、日本発の産業のグローバル展開を目指します。</p><p>今後は調達資金をもとに、ASEAN市場での販売拡大、EU市場進出に向けた体制構築、国内外でのプラント建設と生産体制強化、海外事業・サプライチェーンの専門人材の採用を進め、持続可能な新素材産業の中核を担う企業を目指していきます。</p><p>東大創業者の会ファンドは、今後のMorus社のご活躍を期待しています。</p><p>Morus株式会社のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000030.000091970.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000030.000091970.html</a></p><p style="margin-top:24px;">
+    <img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
     slug: "erWFYRZN",
