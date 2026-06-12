@@ -145,7 +145,11 @@ const newsData = [
     title: "「株式会社TricoLogic」へ出資しました",
     url: "news-detail.html?slug=YAL61__j",
     image: "",
-    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社TricoLogic」へ出資を実行したことをお知らせいたします。</p><p>TricoLogicは、「世界中のエデュケーションをアップデートする」というミッションのもと、AI時代に必要な考える力を伸ばす教育を提供しています。子どもたちの意見を持つ力を伸ばしつつ、AIにより将来の可能性を最大化するという全く新しい塾「ミライ式」を展開しています。</p><p>教育を変えるためには産官民の連携が必要不可欠です。そこで、TricoLogicは東大発のスタートアップではありますが、最も産官民連携の基盤が整っていて、しかもゆかりの地である大阪府で教育事業を展開しています。今回の資金調達により、教室展開を加速させ、大阪府を日本一の教育都市へと発展させて行きます。</p><p>東大創業者の会ファンドは、創業の地の大阪での実績づくりの取り組みに期待しています。TricoLogicの「ミライ式」が今後、大阪から広く全国に展開して、AI時代に必要となる新しい教育のスタンダードとなることを応援していきます。</p><p>株式会社TricoLogicのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000003.000053593.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000003.000053593.html</a></p><p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
+    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社TricoLogic」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/TricoLogicLogo/TricoLogic_logo_black.png" alt="TricoLogic社ロゴ" style="width:100%; margin:24px 0;" />
+    <p>TricoLogicは、「世界中のエデュケーションをアップデートする」というミッションのもと、AI時代に必要な考える力を伸ばす教育を提供しています。子どもたちの意見を持つ力を伸ばしつつ、AIにより将来の可能性を最大化するという全く新しい塾「ミライ式」を展開しています。</p><p>教育を変えるためには産官民の連携が必要不可欠です。そこで、TricoLogicは東大発のスタートアップではありますが、最も産官民連携の基盤が整っていて、しかもゆかりの地である大阪府で教育事業を展開しています。今回の資金調達により、教室展開を加速させ、大阪府を日本一の教育都市へと発展させて行きます。</p><p>東大創業者の会ファンドは、創業の地の大阪での実績づくりの取り組みに期待しています。TricoLogicの「ミライ式」が今後、大阪から広く全国に展開して、AI時代に必要となる新しい教育のスタンダードとなることを応援していきます。</p><p>株式会社TricoLogicのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000003.000053593.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000003.000053593.html</a></p>
+    <img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
+    <p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
     slug: "IQzVbzD-",
