@@ -232,24 +232,12 @@ const newsData = [
     url: "news-detail.html?slug=HXX3-Mkb",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「ハイタレント株式会社」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/hitalent_edited.PNG" alt="ハイタレント社ロゴ" style="width:100%; margin:24px 0;" />
 <p>ハイタレント株式会社は、「優秀な個の選択肢と可能性を広げ、人類の進化に貢献する」をミッションとして掲げ、ハイタレントと企業を繋ぐマッチングプラットフォーム「HiTalent」を展開しています。非連続的な成長を実現するため、豊富な智慧と強固なネットワークを有する東大創業者の会ファンド、ならびに個人投資家からの資金調達を実施しました。</p>
 <p>東大創業者の会ファンドは、急成長するハイタレント社と連携して東大卒業生たちにより一層の活躍の場を作っていけることを期待しています。ますますのハイタレント社のご活躍を期待し、応援します。</p>
 <p>ハイタレント株式会社のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000018.000056630.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000018.000056630.html</a></p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合<br>（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合<br>有限責任組合員（LP）<br>・スター・マイカ・ホールディングス株式会社<br>・gooddaysホールディングス株式会社<br>・スローガン株式会社<br>・株式会社エルテス<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>11億円</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員 スター・マイカ・ホールディングス株式会社<br>職務執行者　水永 政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
