@@ -272,24 +272,12 @@ const newsData = [
     url: "news-detail.html?slug=deZwfo4q",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社Sally」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/sally_edited.png" alt="sally社ロゴ" style="width:100%; margin:24px 0;" />
 <p>株式会社Sallyは、「マダミス」ことマーダーミステリーの力を信じ、遊び手と創り手のプラットフォームを提供する事業を展開しています。通話アプリUZUやシナリオ作成ツールUZU STUDIO、マダミス専門プロダクション、総合ポータルサイトのサービスを提供しており、マダミスの渦に世界を巻き込みます。今回の資金調達では、「ウズ」プラットフォームの強化、オフライン展開の拡大、IP化の推進を行います。</p>
 <p>東大創業者の会ファンドは、前回ラウンドに引き続き、今回のプレシリーズAラウンドでも出資を行いました。黎明期であるマーダーミステリーの市場の成長期待はもちろんですが、経営者としての平石さんの伸びしろにもとても期待しており、ますますのSally社のご活躍を期待し、応援します。</p>
 <p>株式会社Sallyのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000014.000059942.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000014.000059942.html</a></p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合<br>（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合<br>有限責任組合員（LP）<br>・スター・マイカ・ホールディングス株式会社<br>・gooddaysホールディングス株式会社<br>・スローガン株式会社<br>・株式会社エルテス<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>11億円</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員 スター・マイカ・ホールディングス株式会社<br>職務執行者　水永 政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
