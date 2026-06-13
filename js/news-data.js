@@ -365,23 +365,11 @@ const newsData = [
     url: "news-detail.html?slug=u6l5nJaR",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社okke」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/okke.png" alt="okke社ロゴ" style="width:100%; margin:24px 0;" />
 <p>株式会社okkeは、「誰もが能動的に学ぶ世の中を作る」というミッションのもと教育サービスを展開しています。多彩なコンテンツで個々の学びをサポートする高校生向けのアプリ「okke」、テスト作成や採点、データ管理を一瞬で完了できる教育機関向けのテストツール「Dr.okke」の2つのサービスを展開しており、今回の資金調達ではプロダクトのUX・機能・コンテンツの進化、営業・マーケティングの強化を加速します。</p>
 <p>東大創業者の会ファンドは、デジタル時代の教育分野におけるイノベーションを起こし、教員不足など教育分野における社会的な課題を解決するインパクトも生み出していけるのではと、今後のokke社のご活躍を期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合<br>（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合<br>有限責任組合員（LP）<br>・スター・マイカ・ホールディングス株式会社<br>・gooddaysホールディングス株式会社<br>・スローガン株式会社<br>・株式会社エルテス<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>11億円</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員 スター・マイカ・ホールディングス株式会社<br>職務執行者　水永 政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
