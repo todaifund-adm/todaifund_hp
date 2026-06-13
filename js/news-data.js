@@ -159,7 +159,7 @@ const newsData = [
     url: "news-detail.html?slug=IQzVbzD-",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社EduCare」へ出資を実行したことをお知らせいたします。</p>
-    <img src="images/logos/Educare_edited.PNG" alt="Educare社ロゴ" style="width:100%; margin:24px 0;" />
+    <img src="images/logos/Educare.jpg" alt="Educare社ロゴ" style="width:100%; margin:24px 0;" />
     <p>株式会社EduCareは、"Make Education Affordable（〜教育をより手軽に〜)"をビジョンに掲げ、学生や若手の社会人に対し、ファイナンス面で学びをサポートすることを目指している、2022年に設立されたFintechスタートアップです。</p><p>今回の増資による主な資金使途は、教育ROI™データベースの開発、社会人リスキリングローンの事業開発費用、両事業の拡大に向けた営業・マーケティング等の強化に充当し、来年より本格的な事業ローンチを実施する予定です。</p><p>東大創業者の会ファンドは、教育ファイナンス領域でゼロからスタートアップを立ち上げた村上さんの情熱によって、多くのエンジェル投資家の心が動き、応援団が続々と増えていく様子を見て、この領域の可能性、そして村上さん率いるEduCareの可能性を強く感じて追加出資しました。粘り強くビジョン実現にむけて歩むEduCareをこれからも応援していきます。</p><p>株式会社EduCareのプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000003.000124404.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000003.000124404.html</a></p>
     <img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
     <p style="margin-top:24px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
@@ -476,7 +476,7 @@ const newsData = [
     url: "news-detail.html?slug=X1O2TLoo",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社Educare」へ出資を実行したことをお知らせいたします。</p>
-    <img src="images/logos/Educare_edited.PNG" alt="Educare社ロゴ" style="width:100%; margin:24px 0;" />
+    <img src="images/logos/Educare.jpg" alt="Educare社ロゴ" style="width:100%; margin:24px 0;" />
 <p>株式会社EduCareは、日本ではまだ少ない「出世払い型」の奨学金事業を中心とした教育ファイナンス事業の展開を目指し、学費の支払いに課題を抱える学生向けの学費支援に取り組んでいます。当初は看護業界に注力していく予定ですが、今後は様々な高度専門職を目指す学生に対してEdtech×Fintech領域で幅広く事業を展開し、「教育を、より手軽に」をヴィジョンに、経済的事情によらず誰もが教育を受けられる社会を目指しています。</p>
 <p>今回、村上代表の原体験に基づく教育格差を解消したいという強い思いと、「出世払い型」の奨学金事業を中心とした教育ファイナンスの拡大に可能性を感じ、出資を決定しました。今後、EduCareの運用が軌道に乗り、教育機会が等しく保障されるような社会が実現されることを期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
