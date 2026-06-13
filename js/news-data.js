@@ -461,23 +461,11 @@ const newsData = [
     url: "news-detail.html?slug=0_x4LBbu",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社RICOS」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/RICOS_En.jpg" alt="RICOS社ロゴ" style="width:100%; margin:24px 0;" />
 <p>株式会社RICOSは、CAE（Computer Aided Engineering）にAIおよび高性能計算の技術を組み合わせることで、ものづくりのプロセスを最適化するテックカンパニーです。高速にシミュレーション結果を予測できるアルゴリズム「IsoGCN（アイソジーシーエヌ）」を2020年に開発、現在はIsoGCNアルゴリズムを改良、より良精度かつ幅広い現象の表現が出来るAIアルゴリズムを開発中で、提供中製品である「Lightning」の継続的な更新も予定しています。RICOSは、製品を通して、あらゆるものづくりの現場で効果的に科学計算が活用され、最終的には最適な性能を瞬時にデザインできる世界の実現を目指しています。</p>
 <p>今回、CAEのワークフローを自動化・高速化し、誰でも使いやすくすることで、あらゆるものづくり領域においてグローバルに貢献できる可能性を感じ、出資を決定しました。今後のRICOS社のご活躍を期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合<br>（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合<br>有限責任組合員（LP）<br>・スター・マイカ・ホールディングス株式会社<br>・gooddaysホールディングス株式会社<br>・スローガン株式会社<br>・株式会社エルテス<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>11億円</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員 スター・マイカ・ホールディングス株式会社<br>職務執行者　水永 政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
