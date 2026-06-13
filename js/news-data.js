@@ -476,24 +476,11 @@ const newsData = [
     url: "news-detail.html?slug=X1O2TLoo",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「株式会社Educare」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/Educare_edited.PNG" alt="Educare社ロゴ" style="width:100%; margin:24px 0;" />
 <p>株式会社EduCareは、日本ではまだ少ない「出世払い型」の奨学金事業を中心とした教育ファイナンス事業の展開を目指し、学費の支払いに課題を抱える学生向けの学費支援に取り組んでいます。当初は看護業界に注力していく予定ですが、今後は様々な高度専門職を目指す学生に対してEdtech×Fintech領域で幅広く事業を展開し、「教育を、より手軽に」をヴィジョンに、経済的事情によらず誰もが教育を受けられる社会を目指しています。</p>
 <p>今回、村上代表の原体験に基づく教育格差を解消したいという強い思いと、「出世払い型」の奨学金事業を中心とした教育ファイナンスの拡大に可能性を感じ、出資を決定しました。今後、EduCareの運用が軌道に乗り、教育機会が等しく保障されるような社会が実現されることを期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資の総額</td><td>未定</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合　60百万円<br>有限責任組合員（LP）<br>・gooddaysホールディングス株式会社　100百万円<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>20億円以内</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員　スター・マイカ・ホールディングス株式会社<br>職務執行者　水永　政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
