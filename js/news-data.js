@@ -514,24 +514,11 @@ const newsData = [
     url: "news-detail.html?slug=ul-RLr32",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「World Matcha Inc.」へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/pastfund/world matcha.png" alt="World Matcha社のロゴ" style="width:100%; margin:24px 0;" />
 <p>World Matcha Inc.は、誰でも簡単に挽きたての抹茶を楽しめる抹茶マシンと茶葉の販売を、Cuzen Matcha（空禅抹茶）ブランドのもとに展開しています。日本が誇る「抹茶」の茶葉本来の味を世界中で誰もが簡単に楽しめるだけでなく、日本のお茶生産者や地球環境にも好循環を生むお茶ブランドを目指し、米国を中心に事業を拡大しています。</p>
 <p>当会1号ファンドからの出資後も、順調に成長を続けている状況を踏まえ、今回のラウンドでも再びご支援をさせていただくこととなりました。今後、業務用マシンの開発に伴う法人向けビジネスの拡大で、ますます抹茶が世界に広がっていくことを期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:660px;">
-  <tr><td>名称</td><td>UT創業者の会投資事業有限責任組合（通称「東大創業者の会ファンド」）</td></tr>
-  <tr><td>所在地</td><td>東京都港区</td></tr>
-  <tr><td>設立根拠等</td><td>投資事業有限責任組合契約に関する法律</td></tr>
-  <tr><td>組成目的</td><td>東京大学出身者（在学・卒業）等が創業又は経営している国内外のベンチャー企業への投資</td></tr>
-  <tr><td>組成日</td><td>2022年5月23日</td></tr>
-  <tr><td>出資の総額</td><td>未定</td></tr>
-  <tr><td>出資者</td><td>無限責任組合員（GP）<br>・UT創業者の会有限責任事業組合　60百万円<br>有限責任組合員（LP）<br>・gooddaysホールディングス株式会社　100百万円<br>・グローバル・ブレイン8号投資事業有限責任組合　他</td></tr>
-  <tr><td>運用期間</td><td>9年</td></tr>
-  <tr><td>本ファンドの規模</td><td>20億円以内</td></tr>
-  <tr><td rowspan="4">無限責任組合員の概要</td><td>名称：UT創業者の会有限責任事業組合</td></tr>
-  <tr><td>所在地：東京都港区</td></tr>
-  <tr><td>代表者：組合員　スター・マイカ・ホールディングス株式会社<br>職務執行者　水永　政志</td></tr>
-  <tr><td>出資金：60百万円</td></tr>
-</table>
+<img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />
 <p style="margin-top:16px;">東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
   },
   {
