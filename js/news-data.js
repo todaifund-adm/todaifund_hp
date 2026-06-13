@@ -514,7 +514,7 @@ const newsData = [
     url: "news-detail.html?slug=ul-RLr32",
     image: "",
     body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「World Matcha Inc.」へ出資を実行したことをお知らせいたします。</p>
-    <img src="images/logos/pastfund/world matcha.png" alt="World Matcha社ロゴ" style="width:100%; margin:24px 0;" />
+    <img src="images/logos/worldmatcha.png" alt="World Matcha社ロゴ" style="width:100%; margin:24px 0;" />
 <p>World Matcha Inc.は、誰でも簡単に挽きたての抹茶を楽しめる抹茶マシンと茶葉の販売を、Cuzen Matcha（空禅抹茶）ブランドのもとに展開しています。日本が誇る「抹茶」の茶葉本来の味を世界中で誰もが簡単に楽しめるだけでなく、日本のお茶生産者や地球環境にも好循環を生むお茶ブランドを目指し、米国を中心に事業を拡大しています。</p>
 <p>当会1号ファンドからの出資後も、順調に成長を続けている状況を踏まえ、今回のラウンドでも再びご支援をさせていただくこととなりました。今後、業務用マシンの開発に伴う法人向けビジネスの拡大で、ますます抹茶が世界に広がっていくことを期待しています。</p>
 <p>▼東大創業者の会ファンドについて▼</p>
