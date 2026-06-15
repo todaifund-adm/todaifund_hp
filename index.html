@@ -59,20 +59,20 @@
     <p class="section-label fade-up">NEWS</p>
     <h2 class="section-title-jp fade-up">最新のお知らせ</h2>
 
-    <ul class="news-list fade-up">
-      <li class="news-item">
-        <p class="news-item-title">東大創業者の会×SVCOアカデミー 「高い企業価値を目指すエクイティストーリーとは？」勉強会イベントを開催いたしました</p>
-        <p class="news-item-excerpt">2026年1月9日(金)にgoodoffice新橋にて、東大創業者の会とフィナンシャル・バリュー＆アドバイザーズの共催で勉強会イベントを開催し、東大出身スタートアップの方を中心に、約30名の方…</p>
-      </li>
-      <li class="news-item">
-        <p class="news-item-title">【2026/1/9(金)開催】「高い企業価値を目指すエクイティストーリーとは？」勉強会型イベントのお知らせ</p>
-        <p class="news-item-excerpt">いつもお世話になっております。東大創業者の会事務局です。東大創業者の会では、ファイナンシャル・バリュー＆アドバイザーズ株式会社と共催し、「スタートアップのための大きな企業価値を創出するエクイティストー…</p>
-      </li>
-      <li class="news-item">
-        <p class="news-item-title">スタートアップの事業成長を加速する「事業計画の極意」講演会を開催いたしました</p>
-        <p class="news-item-excerpt">2025年11月13日(木)にgoodoffice新橋にて、スタートアップの事業成長を加速する「事業計画の極意」講演会を開催し、東大出身起業家の方を中心に、約20名の方にお集まりいただきまして、活気…</p>
-      </li>
-    </ul>
+    <ul class="news-list fade-up" id="top-news-list"></ul>
+
+    <script src="js/news-data.js"></script>
+    <script>
+      const list = document.getElementById('top-news-list');
+      newsData.slice(0, 3).forEach(item => {
+        list.innerHTML += `
+          <li class="news-item" onclick="location.href='${item.url}'" style="cursor:pointer;">
+            <p class="news-item-title">${item.title}</p>
+            <p class="news-item-excerpt">${item.body ? item.body.replace(/<[^>]*>/g, '').slice(0, 60) + '…' : ''}</p>
+          </li>
+        `;
+      });
+    </script>
     <div style="text-align: center; margin-top: 48px;">
       <a href="news.html" class="btn-outline">ニュース一覧はこちら</a>
     </div>
