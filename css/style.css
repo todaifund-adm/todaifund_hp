@@ -801,6 +801,31 @@ footer {
 .footer-sns a:hover { color: rgba(255,255,255,0.7); }
 
 /* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 110;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
    ANIMATIONS
    ============================================================ */
 .fade-up {
@@ -817,8 +842,34 @@ footer {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { gap: 20px; }
+  /* ─── ハンバーガーナビ ─── */
+  nav { padding: 0 20px; }
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0; right: 0;
+    background: rgba(15, 31, 61, 0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0 24px;
+    border-top: 1px solid rgba(74,127,193,0.2);
+    z-index: 99;
+    list-style: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 14px 28px;
+    font-size: 17px;
+    letter-spacing: 0.15em;
+  }
+  .nav-contact { display: none; }
+
+  /* ─── その他レスポンシブ ─── */
   .hero-content { padding: 100px 32px 60px; }
   .hero-subtitle-vertical { display: none; }
   .page-hero { padding: 120px 32px 60px; }
@@ -840,4 +891,8 @@ footer {
   .members-grid { grid-template-columns: 1fr; }
   #contact { padding: 80px 32px; }
   footer { padding: 28px 32px; flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .logo-item { width: calc(100% / 2); }
 }

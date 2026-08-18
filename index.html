@@ -15,7 +15,10 @@
 
 <!-- NAV -->
 <nav>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="news.html">NEWS</a></li>
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#activities">ACTIVITIES</a></li>
@@ -548,6 +551,22 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
 </script>
 </body>
 </html>
