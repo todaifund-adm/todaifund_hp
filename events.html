@@ -215,6 +215,34 @@
       letter-spacing: 0.08em;
     }
 
+    .upcoming-card-img {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: var(--navy-mid);
+      margin-bottom: 16px;
+    }
+
+    .upcoming-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .upcoming-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a3260 0%, #0f2550 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.25em;
+      color: rgba(74,127,193,0.35);
+    }
+
     @media (max-width: 900px) {
       .events-upcoming { padding: 60px 32px; }
       .events-past { padding: 60px 32px; }
@@ -259,27 +287,35 @@
       開催予定のイベントの一覧です。ぜひ詳細をご確認の上、お申し込みください。
     </p>
 
-    <!-- 開催予定イベントがある場合はここに追加 -->
-    <!-- 例：
     <div class="upcoming-card fade-up">
       <div class="upcoming-card-date">
-        <p class="upcoming-card-month">MAY</p>
-        <p class="upcoming-card-day">15</p>
+        <p class="upcoming-card-month">SEP</p>
+        <p class="upcoming-card-day">4</p>
         <p class="upcoming-card-year">2026</p>
       </div>
       <div class="upcoming-card-body">
-        <h3 class="upcoming-card-title">イベントタイトルをここに入力</h3>
-        <div class="upcoming-card-meta">
-          <span>🕐 19:00〜21:00</span>
-          <span>📍 goodoffice新橋</span>
+        <div class="upcoming-card-img">
+          <img src="images/events/svco2026-2.png" alt="SVCOアカデミーコラボ勉強会"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="upcoming-card-img-placeholder" style="display:none;">COMING SOON</div>
         </div>
-        <a href="#" class="upcoming-card-link">詳細・申し込みはこちら</a>
+        <h3 class="upcoming-card-title">SVCOアカデミーコラボ「AI時代の戦略的価値創造オフィサーとは」勉強会</h3>
+        <a href="https://forms.gle/g2touQCFdPiEe9wz9" target="_blank" class="upcoming-card-link">申し込みフォームはこちら</a>
       </div>
     </div>
-    -->
 
-    <div class="events-empty fade-up">
-      現在、開催予定のイベントはございません
+    <div class="upcoming-card fade-up">
+      <div class="upcoming-card-date">
+        <p class="upcoming-card-month">OCT</p>
+        <p class="upcoming-card-day">17</p>
+        <p class="upcoming-card-year">2026</p>
+      </div>
+      <div class="upcoming-card-body">
+        <div class="upcoming-card-img">
+          <div class="upcoming-card-img-placeholder">COMING SOON</div>
+        </div>
+        <h3 class="upcoming-card-title">東京大学ホームカミングデー</h3>
+      </div>
     </div>
 
   </div>
@@ -294,6 +330,16 @@
       年に2回のMEET UPイベントに加え、東京大学との公式コラボイベントや、企業とのコラボイベントも開催しています。<br>
       過去のイベントの様子は、以下の詳細をご覧ください。
     </p>
+
+    <div class="past-event fade-up">
+      <div class="past-event-img">
+        <div class="past-event-img-placeholder">COMING SOON</div>
+      </div>
+      <div class="past-event-body">
+        <p class="past-event-date">2026/8/19</p>
+        <h3 class="past-event-title">東大創業者の会 納涼ビアガーデン</h3>
+      </div>
+    </div>
 
     <div class="past-event fade-up" data-slug="aXholikt">
       <div class="past-event-img">
