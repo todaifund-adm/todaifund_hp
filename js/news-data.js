@@ -1,5 +1,17 @@
 const newsData = [
   {
+    slug: "pieceinvest",
+    date: "2026/09/07",
+    category: "investment",
+    title: "「Piece Finance S.r.l.」へ出資しました",
+    url: "news-detail.html?slug=pieceinvest",
+    image: "",
+    body: `<p>UT創業者の会投資事業有限責任組合（以下、東大創業者の会ファンド）は、「Piece Finance S.r.l.」（以下、Piece社）へ出資を実行したことをお知らせいたします。</p>
+    <img src="images/logos/Piece Finance.png" alt="Piece社ロゴ" style="width:100%; margin:24px 0;" />
+    <p>Pieceは、2023年5月に創業し、同年末にヨーロッパ不動産物件の小口化商品を取引可能なオンラインプラットフォーム「Piece」の提供を開始しました。</p><p>その後、2025年11月には、EU域内の包括的金融規制 MiFID2に適合した、より安全性と透明性の高い証券トークンの売買プラットフォームとして、全体をリニューアルしました。同プラットフォームには既に、35ヶ国から3,000以上のユーザーが登録しています。</p><p>東大創業者の会ファンドは、今後のPiece社のご活躍を期待しています。</p><p>Piece Finance S.r.l.のプレスリリース<br><a href="https://prtimes.jp/main/html/rd/p/000000004.000160688.html" target="_blank">https://prtimes.jp/main/html/rd/p/000000004.000160688.html</a></p><p style="margin-top:24px;">
+    <img src="images/news/info.png" alt="ファンド情報" style="width:100%; margin:24px 0;" />東大創業者の会　事務局<br>E-mail: <a href="mailto:todaifund@gmail.com">todaifund@gmail.com</a></p>`
+  },
+  {
     slug: "aXholikt",
     date: "2026/01/20",
     category: "event",
