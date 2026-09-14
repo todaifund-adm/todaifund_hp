@@ -469,6 +469,13 @@
       });
     });
   }
+
+  // 過去イベントのクリックでニュース記事へ
+  document.querySelectorAll('.past-event[data-slug]').forEach(el => {
+    el.addEventListener('click', () => {
+      window.open('news-detail.html?slug=' + el.dataset.slug, '_blank');
+    });
+  });
 </script>
 </body>
 </html>
