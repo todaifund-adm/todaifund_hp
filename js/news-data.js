@@ -1,7 +1,7 @@
 const newsData = [
     {
     slug: "hcd2026",
-    date: "2026/10/29",
+    date: "2026/10/30",
     category: "event",
     title: "東京大学ホームカミングデイ2026 東京大学150周年カウントダウンイベント「東京大学 × スタートアップ」を共催いたしました",
     url: "news-detail.html?slug=hcd2026",
